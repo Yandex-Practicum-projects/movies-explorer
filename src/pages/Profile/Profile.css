@@ -1,0 +1,53 @@
+.profile {
+    flex: 1;
+    padding: 148px 30px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 410px;
+    margin: 0 auto;
+}
+
+.profile__title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.profile__content {
+    width: 100%;
+    flex: 1;
+    margin-top: 123px;
+}
+
+.profile__edit,
+.profile__logout {
+    background-color: transparent;
+    border: none;
+    font-family: 'inter', "Arial ", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.profile__edit {
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.profile__logout {
+    color: #EE3465;
+}
+
+.profile__input {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 0;
+    width: fit-content;
+    text-align: end;
+}

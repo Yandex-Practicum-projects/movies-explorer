@@ -1,0 +1,17 @@
+@import url(vendor/fonts/inter.css);
+
+body {
+    background-color: #202020;
+    font-family: 'inter', "Arial ", sans-serif;
+    color: #FFF;
+}
+
+body:has(.navigation.open) {
+    overflow: hidden;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

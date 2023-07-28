@@ -1,0 +1,36 @@
+.menu-button {
+    display: none;
+}
+
+@media screen and (max-width: 850px) {
+    .menu-button {
+        display: block;
+        position: relative;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+    }
+    .menu-button__icon,
+    .menu-button::after,
+    .menu-button::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 3px;
+        background-color: #FFF;
+    }
+    .menu-button__icon {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .menu-button::after {
+        top: 0;
+    }
+    .menu-button::before {
+        bottom: 0;
+    }
+}
