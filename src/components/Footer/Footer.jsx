@@ -5,8 +5,8 @@ const Footer = () => {
       <p className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
       <div className='footer__under'>
         <p className='footer__under-text'>© 2020</p>
-        <a href='https://praktikum.yandex.ru/' className='footer__under-text'>Яндекс.Практикум</a>
-        <a href='https://github.com/Bababum95' className='footer__under-text'>Github</a>
+        <a href='https://praktikum.yandex.ru/' className='footer__under-text footer__link'>Яндекс.Практикум</a>
+        <a href='https://github.com/Bababum95' className='footer__under-text footer__link'>Github</a>
       </div>
     </footer>
   );

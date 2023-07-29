@@ -37,6 +37,13 @@
     cursor: pointer;
     font-size: 12px;
     font-weight: 500;
+    transition: all 0.3s;
+}
+
+.promo__button:hover {
+    border-color: #3DDC84;
+    color: #3DDC84;
+    opacity: 0.8;
 }
 
 .promo__image {

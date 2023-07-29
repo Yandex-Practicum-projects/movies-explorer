@@ -44,6 +44,11 @@
     margin: 15px auto;
     cursor: pointer;
     display: block;
+    transition: all 0.3s;
+}
+
+.movies-card__button:hover {
+    opacity: 0.8;
 }
 
 .movies-card__button_saved {

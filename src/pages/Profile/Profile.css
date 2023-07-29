@@ -32,6 +32,11 @@
     cursor: pointer;
 }
 
+.profile__edit:hover ,
+.profile__logout:hover {
+    opacity: 0.7;
+}
+
 .profile__edit {
     color: #fff;
     margin-bottom: 16px;

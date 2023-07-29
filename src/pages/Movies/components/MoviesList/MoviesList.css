@@ -28,6 +28,11 @@
     font-weight: 500;
     padding: 11px 0 9px;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.movies-list__button:hover {
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 850px) {

@@ -7,6 +7,7 @@
  - [profile](https://stepanov.nomoredomains.sbs/profile)
  - [sign in](https://stepanov.nomoredomains.sbs/signin)
  - [sign up](https://stepanov.nomoredomains.sbs/signup)
+ - [404](https://stepanov.nomoredomains.sbs/404)
 
  ## Web design & UI
  - [Dark - 4](https://www.figma.com/file/HJ24HJg0CWG6T0t2R58oRr/dark-4?type=design&node-id=891%3A3857&mode=dev)
