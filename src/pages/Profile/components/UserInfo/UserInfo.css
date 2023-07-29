@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding-bottom: 16px;
     border-bottom: 1px solid #424242;
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
 .user-info:has(.user-info__input:focus) {

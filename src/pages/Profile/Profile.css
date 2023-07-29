@@ -19,7 +19,7 @@
 .profile__content {
     width: 100%;
     flex: 1;
-    margin-top: 123px;
+    margin-top: 126px;
 }
 
 .profile__edit,
@@ -53,9 +53,18 @@
     outline: none;
 }
 
+@media screen and (max-width: 950px) {
+    .profile__content {
+        margin-top: 98px;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .profile {
         padding: 144px 30px 40px;
         box-sizing: border-box;
+    }
+    .profile__content {
+        margin-top: 83px;
     }
 }

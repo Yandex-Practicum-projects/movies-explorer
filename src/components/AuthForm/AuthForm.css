@@ -48,3 +48,11 @@
     bottom: -15px;
     left: 0;
 }
+
+@media screen and (max-width: 850px) {
+    @media screen and (min-width: 600px) {
+        .form {
+            max-height: 380px;
+        }
+    }
+}
