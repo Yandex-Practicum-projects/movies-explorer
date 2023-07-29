@@ -11,8 +11,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 319px;
-    gap: 32px 28px;
-    margin: 0 0 60px;
+    gap: 32px 30px;
+    margin: 0 0 64px;
     padding: 0;
     list-style: none;
 }
@@ -35,13 +35,13 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 309px;
         gap: 35px 24px;
-        margin-bottom: 80px;
+        margin-bottom: 83px;
     }
 }
 
 @media screen and (max-width: 600px) {
     .movies-list {
-        padding: 50px 10px 80px;
+        padding: 52px 10px 80px;
     }
     .movies-list__list {
         grid-template-columns: repeat(1, 1fr);

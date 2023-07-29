@@ -41,8 +41,8 @@
 
 .promo__image {
     max-height: 304px;
-    width: 310px;
-    max-width: 100%;
+    max-width: 310px;
+    width: 72%;
 }
 
 @media (max-width: 950px) {
@@ -89,5 +89,8 @@
         font-size: 30px;
         line-height: 38px;
         letter-spacing: -1.2px;
+    }
+    .promo__text {
+        margin: 26px 0 80px;
     }
 }

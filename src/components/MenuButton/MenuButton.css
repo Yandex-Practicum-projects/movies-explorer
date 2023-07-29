@@ -9,8 +9,9 @@
         background-color: transparent;
         border: none;
         padding: 0;
-        width: 30px;
-        height: 30px;
+        width: 29px;
+        height: 23px;
+        margin: 0px 7px 4px 0;
     }
     .menu-button__icon,
     .menu-button::after,
@@ -32,5 +33,13 @@
     }
     .menu-button::before {
         bottom: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .menu-button {
+        width: 21px;
+        height: 21px;
+        margin: 0px 9px 4px 0;
     }
 }

@@ -50,4 +50,12 @@
     padding: 0;
     width: fit-content;
     text-align: end;
+    outline: none;
+}
+
+@media screen and (max-width: 600px) {
+    .profile {
+        padding: 144px 30px 40px;
+        box-sizing: border-box;
+    }
 }

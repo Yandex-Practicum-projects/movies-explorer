@@ -21,11 +21,15 @@
 @media (max-width: 950px) {
     .project-link {
         font-size: 28px;
+        margin-bottom: 30px;
     }
 }
 
 @media screen and (max-width: 600px) {
     .project-link {
         font-size: 18px;
+        letter-spacing: -0.72px;
+        padding-bottom: 20px;
+        margin-bottom: 26px;
     }
 }

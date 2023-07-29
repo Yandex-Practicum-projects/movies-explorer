@@ -32,7 +32,7 @@ const Profile = () => {
             {isEdit && (
               <input
                 type='text'
-                className='profile__input'
+                className='profile__input user-info__input'
                 name='name'
                 value={values.name}
                 onChange={handleChange}
@@ -46,7 +46,7 @@ const Profile = () => {
             {isEdit && (
               <input
                 type='email'
-                className='profile__input'
+                className='profile__input user-info__input'
                 name='email'
                 value={values.email}
                 onChange={handleChange}
