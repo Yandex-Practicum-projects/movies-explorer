@@ -6,7 +6,7 @@ const AuthLayout = ({ title, footnote, link, children }) => {
     <main className='auth'>
       <section className='auth__section'>
         <Link className='auth__logo' to='/'>
-          <img src={logo} alt='logo' />
+          <img src={logo} alt='логотип' />
         </Link>
         <h1 className='auth__title'>{title}</h1>
         {children}
