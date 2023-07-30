@@ -111,6 +111,10 @@
     .navigation__close-icon {
         transform: rotate(-45deg);
     }
+    .navigation__close:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width: 600px) {

@@ -10,13 +10,17 @@ const Main = () => {
   return (
     <>
       <Header>
-        <Link className='header__link' to='/signup'>Регистрация</Link>
-        <Link className='header__login' to='/signin'>Войти</Link>
+        <nav className='header__nav'>
+          <Link className='header__link' to='/signup'>Регистрация</Link>
+          <Link className='header__login' to='/signin'>Войти</Link>
+        </nav>
       </Header>
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
+      <main>
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+      </main>
       <Footer />
     </>
   );

@@ -3,11 +3,19 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <p className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
-      <div className='footer__under'>
-        <p className='footer__under-text'>© 2020</p>
-        <a href='https://praktikum.yandex.ru/' className='footer__under-text footer__link'>Яндекс.Практикум</a>
-        <a href='https://github.com/Bababum95' className='footer__under-text footer__link'>Github</a>
-      </div>
+      <ul className='footer__under'>
+        <li className='footer__under-text'>© 2020</li>
+        <li className='footer__under-text'>
+          <a href='https://praktikum.yandex.ru/' className='footer__link' target='_blank' rel='noopener noreferrer'>
+            Яндекс.Практикум
+          </a>
+        </li>
+        <li className='footer__under-text'>
+          <a href='https://github.com/Bababum95' className='footer__link' target='_blank' rel='noopener noreferrer'>
+            Github
+          </a>
+        </li>
+      </ul>
     </footer>
   );
 };

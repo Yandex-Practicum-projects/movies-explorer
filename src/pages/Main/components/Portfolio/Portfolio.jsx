@@ -4,9 +4,11 @@ const Portfolio = () => {
   return (
     <>
       <h4 className='portfolio__title'>Портфолио</h4>
-      <ProjectLink path='' text='Статичный сайт' />
-      <ProjectLink path='' text='Адаптивный сайт' />
-      <ProjectLink path='' text='Одностраничное приложение' />
+      <ul className='portfolio__list'>
+        <ProjectLink path='https://github.com/Bababum95/how-to-learn' text='Статичный сайт' />
+        <ProjectLink path='https://github.com/Bababum95/russian-travel' text='Адаптивный сайт' />
+        <ProjectLink path='https://github.com/Bababum95/react-mesto-auth' text='Одностраничное приложение' />
+      </ul>
     </>
   );
 };

@@ -16,7 +16,7 @@ const Navigation = () => {
       <div className={`navigation ${isOpen && 'open'}`} onClick={closeMenu}>
         <nav className='navigation__menu' onClick={e => e.stopPropagation()}>
           <div className='navigation__wrapper'>
-            <button className='navigation__close' onClick={closeMenu}>
+            <button type='button' className='navigation__close' onClick={closeMenu}>
               <span className='navigation__close-icon' />
             </button>
             <NavLink
@@ -24,7 +24,7 @@ const Navigation = () => {
               end
               className={({ isActive }) => `navigation__nav-link navigation__nav-link_home ${isActive && 'active'}`}
             >
-                            Главная
+              Главная
             </NavLink>
             <NavLink
               to='/movies'
@@ -32,21 +32,21 @@ const Navigation = () => {
               className={({ isActive }) => `navigation__nav-link ${isActive && 'active'}`}
               onClick={closeMenu}
             >
-                            Фильмы
+              Фильмы
             </NavLink>
             <NavLink
-              to='/movies/saved'
+              to='/saved-movies'
               className={({ isActive }) => `navigation__nav-link ${isActive && 'active'}`}
               onClick={closeMenu}
             >
-                            Сохранённые фильмы
+              Сохранённые фильмы
             </NavLink>
           </div>
           <NavLink
             to='/profile'
             className={({ isActive }) => `navigation__nav-link ${isActive && 'active'}`}
           >
-                        Аккаунт
+            Аккаунт
             <span className='navigation__profile' />
           </NavLink>
         </nav>

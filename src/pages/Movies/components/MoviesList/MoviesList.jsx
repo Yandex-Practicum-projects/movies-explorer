@@ -14,7 +14,7 @@ const MoviesList = ({ savedPage }) => {
     }
   }, [savedPage]);
   return (
-    <div className='movies-list'>
+    <section className='movies-list'>
       <ul className='movies-list__list'>
         {movies.map((movie, index) => (
           <MoviesCard
@@ -30,7 +30,7 @@ const MoviesList = ({ savedPage }) => {
       {!savedPage && (
         <button type='button' className='movies-list__button'>Ещё</button>
       )}
-    </div>
+    </section>
   );
 };
 

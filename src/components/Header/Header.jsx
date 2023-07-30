@@ -5,7 +5,7 @@ const Header = ({children}) => {
   return (
     <header className='header'>
       <Link className='header__logo' to='/'>
-        <img src={logo} alt='logo' />
+        <img src={logo} alt='логотип' />
       </Link>
       {children}
     </header>

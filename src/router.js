@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
     element: <Movies savedPage={false} />,
   },
   {
-    path: '/movies/saved',
+    path: '/saved-movies',
     element: <Movies savedPage={true} />,
   },
   {

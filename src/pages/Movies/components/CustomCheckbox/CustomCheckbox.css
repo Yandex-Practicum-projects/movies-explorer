@@ -6,6 +6,10 @@
     gap: 14px;
 }
 
+.custom-checkbox:hover {
+    opacity: 0.8;
+}
+
 .custom-checkbox__input {
     visibility: hidden;
 }

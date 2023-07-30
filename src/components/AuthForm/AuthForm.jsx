@@ -21,18 +21,26 @@ const AuthForm = ({ button, handleSubmit, name }) => {
               minLength={2}
               maxLength={30}
               required
+              placeholder='Имя'
             />
             <span className='form__error'>Что-то пошло не так...</span>
           </label>
         )}
         <label className='form__label'>
           E-mail
-          <input className='form__input' type='email' name='email' required />
+          <input className='form__input' type='email' name='email' required placeholder='E-mail' />
         </label>
         <label className='form__label'>
           Пароль
-          <input className='form__input' type='password' name='password' required />
-          
+          <input
+            className='form__input'
+            type='password'
+            name='password'
+            required
+            minLength={2}
+            maxLength={30}
+            placeholder='Пароль'
+          />
         </label>
       </div>
       <SubmitButton text={button} />

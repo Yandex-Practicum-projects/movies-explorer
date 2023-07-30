@@ -10,8 +10,10 @@ const Movies = ({ savedPage }) => {
       <Header>
         <Navigation />
       </Header>
-      <SearchForm />
-      <MoviesList {...{ savedPage }} />
+      <main style={{flex:1}}>
+        <SearchForm />
+        <MoviesList {...{ savedPage }} />
+      </main>
       <Footer />
     </>
   );
