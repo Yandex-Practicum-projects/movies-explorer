@@ -1,0 +1,25 @@
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #424242;
+    margin-bottom: 18px;
+}
+
+.user-info:has(.user-info__input:focus) {
+    border-bottom: 1px solid #4285F4;
+    padding-bottom: 16px;
+}
+
+.user-info__text {
+    font-size: 11px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.user-info:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
