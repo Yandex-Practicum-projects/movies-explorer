@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
+import { AuthContext } from '../../contexts/AuthContext';
+import { signout } from '../../utils/MainApi';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
 import UserInfo from './components/UserInfo/UserInfo';
@@ -9,20 +11,21 @@ import './Profile.css';
 
 const Profile = () => {
   const navigation = useNavigate();
+  const { currentUser } = useContext(AuthContext);
   const [isEdit, setIsEdit] = useState(false);
   const { values, handleChange } = useForm({
-    name: 'Виталий',
-    email: 'pochta@yandex.ru',
+    name: currentUser.name,
+    email: currentUser.email,
   });
 
   const logout = () => {
-    navigation('/');
+    signout();
+    localStorage.removeItem('query');
+    navigation('/', { replace: true });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log(values);
     setIsEdit(false);
   };
 
@@ -34,9 +37,9 @@ const Profile = () => {
       <main className='profile'>
         <section className='profile__section'>
           <form className='profile__form' onSubmit={handleSubmit}>
-            <h1 className='profile__title'>Привет, Виталий!</h1>
+            <h1 className='profile__title'>Привет, {currentUser.name}!</h1>
             <div className='profile__content'>
-              <UserInfo label='Имя' value={values.name || ''}>
+              <UserInfo label='Имя' value={currentUser.name}>
                 {isEdit && (
                   <input
                     type='text'
@@ -51,7 +54,7 @@ const Profile = () => {
                   />
                 )}
               </UserInfo>
-              <UserInfo label='E-mail' value={values.email || ''}>
+              <UserInfo label='E-mail' value={currentUser.email}>
                 {isEdit && (
                   <input
                     type='email'

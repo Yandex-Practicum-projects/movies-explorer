@@ -1,10 +1,16 @@
+import { useState } from 'react';
+import { signup } from '../../utils/MainApi';
 import AuthLayout from '../../components/AuthLayout/AuthLayout';
 import AuthForm from '../../components/AuthForm/AuthForm';
 
 const Register = () => {
+  const [status, setStatus] = useState('idle');
+
   const handleSubmit = (formData) => {
-    // eslint-disable-next-line no-console
-    console.log(formData);
+    setStatus('loading');
+    signup(formData)
+      .then(() => setStatus('success'))
+      .catch(() => setStatus('error'));
   };
 
   return (
@@ -13,7 +19,7 @@ const Register = () => {
       footnote='Уже зарегистрированы?'
       link={{ path: '/signin', text: 'Войти' }}
     >
-      <AuthForm name={true} button='Зарегистрироваться' handleSubmit={handleSubmit} />
+      <AuthForm status={status} name={true} button='Зарегистрироваться' handleSubmit={handleSubmit} />
     </AuthLayout>
   );
 };
