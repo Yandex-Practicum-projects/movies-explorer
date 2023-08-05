@@ -1,34 +1,68 @@
 import { useState } from 'react';
+import { deleteFilm, saveFilm } from '../../../../utils/MainApi';
 import { formatTime } from '../../../../utils/formatTime';
 import './MoviesCard.css';
-const baseUrl = process.env.REACT_APP_BEATFILM_URL;
 
-const MoviesCard = ({ name, duration, image, saved, savedPage }) => {
-  const [savedMovie, setSavedMovie] = useState(saved);
+const MoviesCard = ({ movie, savedPage, handleDeleteMovie }) => {
+  const [isSaved, setSaved] = useState(movie.saved);
+  const buttonClasses = `movies-card__button
+  ${isSaved && 'movies-card__button_saved'}
+  ${savedPage && 'movies-card__button_delete'}`;
+  const addToFavorite = () => {
+    setSaved(true);
+    saveFilm({
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN,
+      country: movie.country,
+      director: movie.director,
+      duration: movie.duration,
+      year: movie.year,
+      description: movie.description,
+      image: movie.image,
+      trailerLink: movie.trailerLink,
+      thumbnail: movie.image,
+      movieId: movie.id,
+    })
+      .then(res => movie._id = res._id)
+      .catch(() => setSaved(false));
+  };
+
+  const toggleFavorite = (e) => {
+    e.preventDefault();
+    if(savedPage) {
+      deleteFilm(movie._id);
+      handleDeleteMovie(movie.movieId);
+      return;
+    }
+    isSaved? removeFromFavorite() : addToFavorite();
+  };
+
+  const removeFromFavorite = () => {
+    if(!movie._id) return;
+    setSaved(false);
+    deleteFilm(movie._id);
+  };
+
   return (
     <li className='movies-card'>
-      <div className='movies-card__info'>
-        <h2 className='movies-card__title'>{name}</h2>
-        <p className='movies-card__duration'>{formatTime(duration)}</p>
-      </div>
-      <img
-        className='movies-card__image'
-        src={`${baseUrl}/${image}`}
-        alt={name}
-      />
-      {savedPage? (
+      <a href={movie.trailerLink} target='_blank' rel='noopener noreferrer' className='movies-card__link' >
+        <div className='movies-card__info'>
+          <h2 className='movies-card__title'>{movie.nameRU}</h2>
+          <p className='movies-card__duration'>{formatTime(movie.duration)}</p>
+        </div>
+        <img
+          className='movies-card__image'
+          src={movie.image}
+          alt={movie.nameRU}
+        />
         <button
           type='button'
-          className='movies-card__button movies-card__button_delete'/>
-      ):(
-        <button
-          type='button'
-          className={`movies-card__button ${savedMovie && 'movies-card__button_saved'}`}
-          onClick={() => setSavedMovie(!savedMovie)}
+          className={buttonClasses}
+          onClick={toggleFavorite}
         >
           Сохранить
         </button>
-      )}
+      </a>
     </li>
   );
 };

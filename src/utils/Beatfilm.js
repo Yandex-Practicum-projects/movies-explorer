@@ -1,16 +1,22 @@
 export default class Beatfilm {
   constructor(options) {
     this.movies = options.allMovies;
+    this.shortsMovies = this.movies.filter((movie) => movie.duration < 40);
   }
 
-  _getMatchingMovies(movie, query) {
+  _getMatchingMovie(movie, query) {
     return (
       movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
         movie.nameEN.toLowerCase().includes(query.toLowerCase())
     );
   }
 
-  searchMovie(query) {
-    return this.movies.filter((movie) => this._getMatchingMovies(movie, query));
+  searchMovie(query, shorts) {
+    const selectedMovies = shorts? this.shortsMovies : this.movies;
+    return selectedMovies.filter((movie) => this._getMatchingMovie(movie, query));
+  }
+
+  removeFilm(id) {
+    this.movies = this.movies.filter((movie) => movie.movieId !== id);
   }
 }

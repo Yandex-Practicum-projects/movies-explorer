@@ -1,25 +1,12 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Outlet, useNavigation } from 'react-router-dom';
+import { useCallback, useMemo, useState } from 'react';
+import { Outlet, useLoaderData, useNavigation } from 'react-router-dom';
 import { AuthContext } from './contexts/AuthContext';
-import { checkToken } from './utils/MainApi';
 import Preloader from './components/Preloader/Preloader';
 
-
 const App = () => {
+  const { user } = useLoaderData();
   const navigation = useNavigation();
-  const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    checkToken()
-      .then((res) => {
-        setCurrentUser(res);
-      })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
-      });
-  }, [currentUser]);
-  
+  const [currentUser, setCurrentUser] = useState(user);
 
   const login = useCallback((user) => {
     setCurrentUser(user);

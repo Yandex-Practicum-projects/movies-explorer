@@ -35,18 +35,12 @@
 
 .form__input:focus {
     border-color: #4285F4;
+    color: #FFF;
 }
 
 .form__input_error {
     border-color: #EE3465;
     color: #EE3465;
-}
-
-.form__error {
-    color: #EE3465;
-    position: absolute;
-    bottom: -15px;
-    left: 0;
 }
 
 @media screen and (max-width: 850px) {

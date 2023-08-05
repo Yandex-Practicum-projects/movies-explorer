@@ -1,24 +1,31 @@
 import AuthLayout from '../../components/AuthLayout/AuthLayout';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { signin } from '../../utils/MainApi';
 import AuthForm from '../../components/AuthForm/AuthForm';
 
 const Login = () => {
-  const navigation = useNavigate();
-  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { login, currentUser } = useContext(AuthContext);
   const [status, setStatus] = useState('idle');
+  const errorMessage = status === 401 ? 'Вы ввели неправильный логин или пароль' :
+    'При авторизации произошла ошибка';
+
   const handleSubmit = (formData) => {
     setStatus('loading');
     signin(formData)
       .then((res) => {
         setStatus('success');
         login(res);
-        navigation('/', { replace: true });
+        navigate('/movies', { replace: true });
       })
-      .catch(() => setStatus('error'));
+      .catch((error) => setStatus(error.status));
   };
+
+  useEffect(() => {
+    if(currentUser) navigate('/', { replace: true });
+  }, [currentUser, navigate]);
 
   return (
     <AuthLayout
@@ -26,7 +33,12 @@ const Login = () => {
       footnote='Ещё не зарегистрированы?'
       link={{ path: '/signup', text: 'Регистрация' }}
     >
-      <AuthForm status={status} button='Войти' handleSubmit={handleSubmit} />
+      <AuthForm
+        status={status}
+        button='Войти'
+        handleSubmit={handleSubmit}
+        errorFromServer={typeof status === 'number' && errorMessage}
+      />
     </AuthLayout>
   );
 };

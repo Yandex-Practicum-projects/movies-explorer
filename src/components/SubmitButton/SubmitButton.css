@@ -33,6 +33,11 @@
     transform-origin: 0 0;
 }
 
+.submit-button_disabled {
+    background-color: #8B8B8B;
+    opacity: 0.5;
+}
+
 .submit-button:hover {
     cursor: pointer;
     opacity: 0.8;
@@ -41,6 +46,11 @@
 .submit-button_loading:hover {
     cursor: wait;
     opacity: 1;
+}
+
+.submit-button_disabled:hover {
+    opacity: 0.5;
+    cursor: default;
 }
 
 @keyframes spin {

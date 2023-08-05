@@ -1,0 +1,21 @@
+.error {
+    color: #EE3465;
+    font-size: 11px;
+    font-weight: 400;
+    width: 100%;
+    line-height: normal;
+}
+
+.error_form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error_input {
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { moviesLoader, savedMoviesLoader } from './pages/Movies/loaders';
+import { appLoader } from './appLoader';
 import Main from './pages/Main/Main';
 import Movies from './pages/Movies/Movies';
 import NotFound from './pages/NotFound/NotFound';
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    loader: appLoader,
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Main /> },

@@ -7,7 +7,7 @@ const baseOptions = {
 
 const getResponseData = (res) => {
   if (!res.ok) {
-    return Promise.reject(res.status);
+    return Promise.reject(res);
   }
   return res.json();
 };

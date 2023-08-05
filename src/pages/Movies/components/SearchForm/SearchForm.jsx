@@ -1,26 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CustomCheckbox from '../CustomCheckbox/CustomCheckbox';
 import './SearchForm.css';
 
-const SearchForm = ({ handleSubmit, status }) => {
-  const [query, setQuery] = useState('');
+const SearchForm = ({ handleSubmit, status, setShorts, shorts, inputRef }) => {
   const [isError, setError] = useState(false);
 
   const onSubmit = (e) => {
+    const query = inputRef.current.value;
     e.preventDefault();
     query === '' ? setError(true) : handleSubmit(query);
   };
-
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    setError(false);
-  };
-
-  useEffect(() => {
-    const lastQuery = localStorage.getItem('query');
-    if(lastQuery) handleSubmit(query);  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
 
   return (
     <section>
@@ -28,8 +17,8 @@ const SearchForm = ({ handleSubmit, status }) => {
         <div className='search-form__wrapper'>
           <label className='search-form__label'>
             <input
-              value={query}
-              onChange={handleChange}
+              ref={inputRef}
+              onChange={() => setError(false)}
               className='search-form__input'
               type='search'
               placeholder='Фильм'
@@ -44,7 +33,7 @@ const SearchForm = ({ handleSubmit, status }) => {
             </button>
             {isError && (<span className='search-form__error'>Нужно ввести ключевое слово</span>)}
           </label>
-          <CustomCheckbox />
+          <CustomCheckbox {...{ setShorts, shorts }} />
         </div>
       </form>
     </section>
