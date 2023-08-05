@@ -1,9 +1,12 @@
 # Getting Started with Create React App
 
+### Pull request
+https://github.com/Bababum95/movies-explorer-frontend/pull/14
+
 ### Routes
  - [main](https://stepanov.nomoredomains.sbs)
  - [movies](https://stepanov.nomoredomains.sbs/movies)
- - [save movies](https://stepanov.nomoredomains.sbs/movies/saved-movies)
+ - [save movies](https://stepanov.nomoredomains.sbs/saved-movies)
  - [profile](https://stepanov.nomoredomains.sbs/profile)
  - [sign in](https://stepanov.nomoredomains.sbs/signin)
  - [sign up](https://stepanov.nomoredomains.sbs/signup)
