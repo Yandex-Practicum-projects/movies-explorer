@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import { signout, updateUser } from '../../utils/MainApi';
@@ -21,15 +21,10 @@ const Profile = () => {
     email: currentUser.email,
   }, true);
 
-  useEffect(() => {
-
-  }, []);
-
-
   const logout = () => {
     signout();
     login(null);
-    localStorage.removeItem('query');
+    localStorage.removeItem('lastRequest');
     navigation('/', { replace: true });
   };
 
