@@ -17,7 +17,8 @@ const Movies = ({ savedPage }) => {
     if (!query) return;
     const findedMovies = beatfilm.searchMovie(query, shorts);
     if (!savedPage && findedMovies.length > 0) {
-      localStorage.setItem('lastRequest', JSON.stringify({ query, shorts, findedMovies }));
+      localStorage.setItem('lastRequest', JSON.stringify({ query, shorts }));
+      localStorage.setItem('findedMovies', JSON.stringify(findedMovies));
     }
     setMovies(findedMovies);
   };
@@ -28,7 +29,8 @@ const Movies = ({ savedPage }) => {
     } else {
       const lastRequest = localStorage.getItem('lastRequest');
       if (lastRequest) {
-        const { query, shorts, findedMovies } = JSON.parse(lastRequest);
+        const findedMovies = JSON.parse(localStorage.getItem('findedMovies'));
+        const { query, shorts } = JSON.parse(lastRequest);
         setShorts(shorts);
         setMovies(findedMovies);
         inputRef.current.value = query;
@@ -46,6 +48,15 @@ const Movies = ({ savedPage }) => {
   const handleDeleteMovie = (id) => {
     beatfilm.removeFilm(id);
     setMovies(beatfilm.movies);
+    const findedMovies = JSON.parse(localStorage.getItem('findedMovies'));
+    if (findedMovies) {
+      findedMovies.forEach((movie, index) => {
+        if (movie.id === id) {
+          findedMovies[index].saved = false;
+        }
+      });
+      localStorage.setItem('findedMovies', JSON.stringify(findedMovies));
+    }
   };
 
   return (

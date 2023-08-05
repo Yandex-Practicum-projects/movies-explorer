@@ -3,8 +3,9 @@ import { getSavedFilms } from '../../utils/MainApi';
 import { getFilms } from '../../utils/MoviesApi';
 
 export async function moviesLoader() {
+  let allMovies;
   try {
-    const allMovies = await getFilms();
+    allMovies = await getFilms();
     const savedMovies = await getSavedFilms();
     allMovies.forEach((movie, index) => {
       const savedMovie = savedMovies.find(savedMovie => savedMovie.movieId === movie.id);
@@ -16,21 +17,20 @@ export async function moviesLoader() {
         movie.image = process.env.REACT_APP_BEATFILM_URL + movie.image.url;
       } 
     });
-    const beatfilm = new Beatfilm({ allMovies });
-    return { beatfilm };
   } catch {
-    const beatfilm = new Beatfilm({allMovies: []});
-    return { beatfilm };
+    allMovies = [];
   }
+  const beatfilm = new Beatfilm({allMovies});
+  return { beatfilm };
 }
 
 export async function savedMoviesLoader() {
+  let allMovies;
   try {
-    const allMovies = await getSavedFilms();
-    const beatfilm = new Beatfilm({ allMovies });
-    return { beatfilm };
+    allMovies = await getSavedFilms();
   } catch {
-    const beatfilm = new Beatfilm({allMovies: []});
-    return { beatfilm };
+    allMovies = [];
   }
+  const beatfilm = new Beatfilm({allMovies});
+  return { beatfilm };
 }

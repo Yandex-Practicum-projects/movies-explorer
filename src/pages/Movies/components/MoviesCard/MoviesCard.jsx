@@ -3,13 +3,14 @@ import { deleteFilm, saveFilm } from '../../../../utils/MainApi';
 import { formatTime } from '../../../../utils/formatTime';
 import './MoviesCard.css';
 
-const MoviesCard = ({ movie, savedPage, handleDeleteMovie }) => {
+const MoviesCard = ({ movies, movie, savedPage, handleDeleteMovie }) => {
   const [isSaved, setSaved] = useState(movie.saved);
   const buttonClasses = `movies-card__button
   ${isSaved && 'movies-card__button_saved'}
-  ${savedPage && 'movies-card__button_delete'}`;
+  ${savedPage && 'movies-card__button_delete'}
+  ${isSaved === 'loading' && 'movies-card__button_loading'}`;
   const addToFavorite = () => {
-    setSaved(true);
+    setSaved('loading');
     saveFilm({
       nameRU: movie.nameRU,
       nameEN: movie.nameEN,
@@ -23,24 +24,39 @@ const MoviesCard = ({ movie, savedPage, handleDeleteMovie }) => {
       thumbnail: movie.image,
       movieId: movie.id,
     })
-      .then(res => movie._id = res._id)
+      .then((res) => {
+        movie._id = res._id;
+        movie.saved = true;
+        setSaved(true);
+        localStorage.setItem('findedMovies', JSON.stringify(movies));
+      })
       .catch(() => setSaved(false));
   };
 
   const toggleFavorite = (e) => {
     e.preventDefault();
-    if(savedPage) {
-      deleteFilm(movie._id);
-      handleDeleteMovie(movie.movieId);
+    if (savedPage) {
+      setSaved('loading');
+      deleteFilm(movie._id)
+        .then(() => {
+          setSaved(false);
+          movie.saved = false;
+          handleDeleteMovie(movie.movieId);
+        });
       return;
     }
-    isSaved? removeFromFavorite() : addToFavorite();
+    isSaved ? removeFromFavorite() : addToFavorite();
   };
 
   const removeFromFavorite = () => {
-    if(!movie._id) return;
-    setSaved(false);
-    deleteFilm(movie._id);
+    if (!movie._id) return;
+    setSaved('loading');
+    deleteFilm(movie._id)
+      .then(() => {
+        setSaved(false);
+        movie.saved = false;
+        localStorage.setItem('findedMovies', JSON.stringify(movies));
+      });
   };
 
   return (
@@ -59,6 +75,7 @@ const MoviesCard = ({ movie, savedPage, handleDeleteMovie }) => {
           type='button'
           className={buttonClasses}
           onClick={toggleFavorite}
+          disabled={isSaved === 'loading'}
         >
           Сохранить
         </button>

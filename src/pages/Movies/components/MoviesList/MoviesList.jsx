@@ -25,6 +25,7 @@ const MoviesList = ({ savedPage, movies, handleDeleteMovie }) => {
               key={movie.id || movie._id}
               savedPage={savedPage}
               movie={movie}
+              movies={movies}
               handleDeleteMovie={handleDeleteMovie}
             />
           ))}
