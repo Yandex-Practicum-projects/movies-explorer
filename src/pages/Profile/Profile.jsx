@@ -79,7 +79,7 @@ const Profile = () => {
             </div>
             {isEdit ? (
               <>
-                {serverError && <Error type='form' errorMessage={''} />}
+                {serverError && <Error type='form' errorMessage={serverError} />}
                 <SubmitButton isValid={isValid} loading={isLoading} text='Сохранить' />
               </>
             ) : (
