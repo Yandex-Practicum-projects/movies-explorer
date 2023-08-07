@@ -1,7 +1,13 @@
 import './SubmitButton.css';
-const SubmitButton = ({text}) => {
+const SubmitButton = ({text, loading, isValid}) => {
   return (
-    <button type='submit' className='submit-button'>{text}</button>
+    <button
+      type='submit'
+      className={`submit-button ${loading && 'submit-button_loading'} ${!isValid && 'submit-button_disabled'}`}
+      disabled={loading || !isValid}
+    >
+      {text}
+    </button>
   );
 };
 
