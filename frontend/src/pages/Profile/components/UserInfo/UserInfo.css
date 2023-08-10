@@ -1,0 +1,45 @@
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #424242;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.user-info:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.user-info:has(.error) {
+    border-bottom: 1px solid #EE3465;
+    padding-bottom: 16px;
+    color: #EE3465;
+}
+
+.user-info:has(.user-info__input:focus) {
+    border-bottom: 1px solid #4285F4;
+    padding-bottom: 16px;
+    color: #fff;
+}
+
+.user-info__text {
+    font-size: 11px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.user-info__input {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 0;
+    width: 80%;
+    text-align: end;
+    outline: none;
+}
